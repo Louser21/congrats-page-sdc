@@ -12,7 +12,7 @@ const CongratsPage = () => {
     const fetchLeaderboard = async () => {
         try {
             setIsLoading(true)
-            const res = await fetch("http://localhost:5000/api/leaderboard")
+            const res = await fetch("https://congrats-page-backend.vercel.app/api/leaderboard")
             if (!res.ok) throw new Error(`Failed to fetch: ${res.status}`)
             const data = await res.json()
             setLeaderboard(data)
@@ -31,7 +31,7 @@ const CongratsPage = () => {
         if (!name.trim()) return
         setIsLoading(true)
         try {
-            const res = await fetch("http://localhost:5000/api/users", {
+            const res = await fetch("https://congrats-page-backend.vercel.app/api/users", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ name })
